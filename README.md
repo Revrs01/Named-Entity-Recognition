@@ -32,5 +32,8 @@
 ### Common Algorithms
 + Maximum Entropy Markov Model
 <img src="./Images/MEMM.png" width=90%>
+
+
 + Conditional Random Fields
 <img src="./Images/CRF.png" width=90%>
+***
