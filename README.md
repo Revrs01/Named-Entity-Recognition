@@ -37,3 +37,4 @@
 + Conditional Random Fields
 <img src="./Images/CRF.png" width=90%>
 ***
+
