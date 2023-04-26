@@ -51,8 +51,8 @@ ner_tag_decoder = {0: 'B-GPE', 1: 'I-GPE', 2: 'B-PER', 3: 'I-PER', 4: 'B-DATE', 
                    27: 'I-QUANTITY', 28: 'B-PERCENT', 29: 'I-PERCENT', 30: 'B-LANGUAGE', 31: 'I-LANGUAGE',
                    32: 'B-PRODUCT', 33: 'I-PRODUCT', 34: 'B-LAW', 35: 'I-LAW', 36: 'O'}
 
-data = pandas.read_csv('../Datasets/Train_data_pos_tags.csv')['Paragraph'].tolist()
-token_data = pandas.read_csv('../Datasets/News_data_token.csv')['Paragraph'].tolist()
+data = pandas.read_csv('../Datasets/self_create_datasets_with_diff_tags/Train_data_pos_tags.csv')['Paragraph'].tolist()
+token_data = pandas.read_csv('../Datasets/self_create_datasets_with_diff_tags/News_data_token.csv')['Paragraph'].tolist()
 pos = POS('../Datasets/data')
 ner = NER('../Datasets/data')
 
