@@ -1,4 +1,4 @@
-pandas~=2.0.1
+pandas==2.0.1
 selenium==4.9.0
 jieba==0.42.1
 ckiptagger==0.2.1
