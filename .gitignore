@@ -2,3 +2,9 @@ chromedriver
 .idea/
 .DS_Store
 Datasets/data/
+src/cache_dir/
+src/model_output/
+src/runs
+src/cache_dir
+src/__pycache__
+model_output/

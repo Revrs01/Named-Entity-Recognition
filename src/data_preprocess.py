@@ -4,7 +4,7 @@ from jieba import posseg as pseg
 data_index_counter = 0
 for i in range(0, 9583):
     # read 10 lines a time
-    paragraph = pandas.read_csv('../Datasets/News_data.csv')['Paragraph'][i]
+    paragraph = pandas.read_csv('../Datasets/original_data/News_data.csv')['Paragraph'][i]
 
     # initialize
     tokenized_string = list()
