@@ -7,4 +7,4 @@ src/model_output/
 src/runs
 src/cache_dir
 src/__pycache__
-model_output_sighan2006/
+model_output/
