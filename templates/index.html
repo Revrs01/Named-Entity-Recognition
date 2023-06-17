@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        function parseFormDataToJson(serializeArray) {
+            let formData = {};
+            serializeArray.map(function (item) {
+                if (formData[item.name]) {
+                    if (typeof (formData[item.name]) === "string") {
+                        formData[item.name] = [formData[item.name]];
+                    }
+                    formData[item.name].push(item.value);
+                } else {
+                    formData[item.name] = item.value;
+                }
+            });
+            return formData;
+        }
+
+        $(function () {
+            $('#ParagraphForm').on('submit', function (e) {
+                e.preventDefault(); // form預設會想跳頁，禁止預設行為
+                let formData = parseFormDataToJson($(this).serializeArray());
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1:5000/calc',
+                    data: JSON.stringify(formData),
+                    contentType: 'application/json',
+                    success: function () {
+                        alert('Calculate Finish, Click Show Result！');
+                    }
+                });
+            });
+
+            var $resultContent = $('#resultContent')
+
+            $('#getResult').on('click', function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1:5000/calc',
+                    success: function (result) {
+                        $resultContent.append(
+                            $('<tr/>').append(
+                                $('<td/>').text(result)
+                            ))
+                    }
+                })
+            })
+
+            $('#clearOutputButton').on('click', function () {
+                $resultContent.empty();
+            });
+        })
+
+    </script>
+    <title>NER</title>
+</head>
+<body>
+<h2>Named Entity Recognition</h2><br>
+<h3>Input</h3>
+<form id="ParagraphForm">
+    <textarea id="Paragraph_input" name="Paragraph_text_area" rows="10" cols="100"
+              placeholder="Your text here"></textarea>
+    <br>
+    <input type="submit" value="Start Recognition">
+</form>
+<br>
+<button id="getResult">Show Result</button>
+<button id="clearOutputButton">Clear Output</button>
+<table>
+    <tbody id="resultContent"></tbody>
+</table>
+</body>
+
+</html>
